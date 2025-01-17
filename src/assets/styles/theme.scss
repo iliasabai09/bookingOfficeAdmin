@@ -1,0 +1,13 @@
+:root {
+  --body-bg: #f1f5f9;
+  --surface-1: #fff;
+  --card-shadow: 0px 4px 30px rgba(221, 224, 255, .54);
+  --border: #e2e8f0
+}
+
+:root[class="my-app-dark"] {
+  --body-bg: #09090b;
+  --surface-1: #18181b;
+  --card-shadow: none;
+  --border: #3f3f46
+}
