@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Default from "../layouts/default/default.vue";
-import MainPage from "../pages/MainPage.vue";
+import MainPage from "../pages/Main/MainPage.vue";
 import Auth from "../layouts/auth.layout.vue";
 import OthersPage from "../pages/Others/OthersPage.vue";
 

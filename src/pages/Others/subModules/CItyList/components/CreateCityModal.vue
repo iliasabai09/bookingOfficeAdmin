@@ -8,12 +8,12 @@ const {form, createCity} = useCreateCity();
 <template>
   <div class="cityModal">
     <IftaLabel class="w-full">
-      <InputText class="w-full" id="username" v-model="form.name"/>
-      <label for="username">Название города</label>
+      <InputText class="w-full" id="cityName" v-model="form.name"/>
+      <label for="cityName">Название города</label>
     </IftaLabel>
     <IftaLabel class="w-full">
-      <InputText class="w-full" id="username" v-model="form.code"/>
-      <label for="username">Код города</label>
+      <InputText class="w-full" id="cityCode" v-model="form.code"/>
+      <label for="cityCode">Код города</label>
     </IftaLabel>
     <Button icon="pi pi-plus" label="Добавить" :disabled="!form.name || !form.code" @click="createCity()"/>
   </div>

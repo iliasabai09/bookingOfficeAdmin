@@ -12,6 +12,7 @@ const {serviceList, onRowEditSave, createService, statuses, deleteService, editi
     </template>
   </Toolbar>
   <DataTable :value="serviceList" editMode="row" dataKey="id"
+             :loading="!serviceList.length"
              v-model:editingRows="editingRows"
              @row-edit-save="onRowEditSave">
     <Column field="name" header="Name" style="width: 20%">
