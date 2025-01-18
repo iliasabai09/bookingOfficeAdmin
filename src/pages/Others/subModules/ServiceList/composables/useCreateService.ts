@@ -1,7 +1,7 @@
 import {inject, ref} from "vue";
-import CityListService from '../services/index.ts'
+import ServiceListService from '../services/index.ts'
 
-export function useCreateCity() {
+export function useCreateService() {
     const loading = ref(false);
     const dialogRef = inject<any>('dialogRef');
 
@@ -10,17 +10,18 @@ export function useCreateCity() {
         name: "",
         status: "active",
         isActive: true,
+        description: '',
     })
 
-    function createCity() {
+    function createService() {
         loading.value = true;
-        CityListService.createCity(form.value).then(res => {
+        ServiceListService.addService(form.value).then(res => {
             dialogRef.value.close(res);
         })
     }
 
     return {
         form,
-        createCity
+        createService
     }
 }

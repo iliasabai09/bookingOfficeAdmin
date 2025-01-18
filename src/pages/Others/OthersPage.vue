@@ -2,9 +2,10 @@
 import {Tab, TabList, Tabs} from "primevue";
 import {ref} from "vue";
 import CityList from "./subModules/CItyList/CityList.vue";
+import ServiceList from "./subModules/ServiceList/ServiceList.vue";
 
 const selectedIdx = ref(0);
-const components = ref([CityList])
+const components = ref([CityList, ServiceList])
 </script>
 
 <template>
