@@ -1,8 +1,13 @@
-import {createCity, editCity, getCities} from "../api";
+import {createCity, deleteCity, editCity, getCities} from "../api";
 
 class CityListService {
     getCityList() {
-        return getCities().then((res: any) => res.data);
+        return getCities().then((res: any) => res.data.map((city, idx) => {
+            return {
+                ...city,
+                number: ++idx
+            };
+        }));
     }
 
     editCity(data: any) {
@@ -11,6 +16,10 @@ class CityListService {
 
     createCity(data: any) {
         return createCity(data).then((res: any) => res.data);
+    }
+
+    deleteCity(id: number) {
+        return deleteCity(id).then((res: any) => res.data)
     }
 }
 

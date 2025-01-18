@@ -11,9 +11,9 @@ const components = ref([CityList])
   <section>
     <Tabs v-model:value="selectedIdx">
       <TabList>
-        <Tab value="0">Города</Tab>
-        <Tab value="1">Сервисы</Tab>
-        <Tab value="2">Тарифы</Tab>
+        <Tab :value="0">Города</Tab>
+        <Tab :value="1">Сервисы</Tab>
+        <Tab :value="2">Тарифы</Tab>
       </TabList>
       <component :is="components[selectedIdx]"/>
     </Tabs>

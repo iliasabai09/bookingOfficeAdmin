@@ -11,3 +11,7 @@ export function editCity(data: any) {
 export function createCity(data: any) {
     return apiOffices.post('/cities', data);
 }
+
+export function deleteCity(id: number) {
+    return apiOffices.delete('/cities/' + id);
+}
