@@ -63,7 +63,6 @@ export function useSetPartner() {
                 form.value[k] = partner[k];
             }
         }
-        console.log(dialogRef.value.data.partner)
     })
 
     return {

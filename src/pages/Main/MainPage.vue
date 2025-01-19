@@ -44,7 +44,6 @@ const {
       </Column>
       <template #expansion="slotProps">
         <div class="p-4">
-          <h3>Areas by {{ slotProps.data.organizationName }}</h3>
           <DataTable :value="slotProps.data.areas" selection-mode="single">
             <Column field="name" header="Name"></Column>
             <Column field="areaType" header="AreaType"></Column>

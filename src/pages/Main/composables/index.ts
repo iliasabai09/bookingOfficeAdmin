@@ -42,7 +42,7 @@ export function usePartners() {
         dialog.open(SetPartner, {
             props: {
                 modal: true,
-                header: 'Добавить партнера',
+                header: partner ? 'Изменить партнера' : 'Добавить партнера',
                 draggable: false,
             },
             data: {
@@ -53,9 +53,6 @@ export function usePartners() {
                 if (!partner) {
                     partners.value.push(options.data)
                 } else {
-                    console.log(partner)
-                    console.log(partners.value)
-                    console.log(options.data)
                     partners.value = partners.value.map(par => {
                         if (par.id === options.data.id) return options.data
                         else return par

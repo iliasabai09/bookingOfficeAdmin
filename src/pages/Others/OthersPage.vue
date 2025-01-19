@@ -14,7 +14,6 @@ const components = ref([CityList, ServiceList])
       <TabList>
         <Tab :value="0">Города</Tab>
         <Tab :value="1">Сервисы</Tab>
-        <Tab :value="2">Тарифы</Tab>
       </TabList>
       <component :is="components[selectedIdx]"/>
     </Tabs>

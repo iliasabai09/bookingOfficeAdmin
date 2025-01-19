@@ -1,29 +1,69 @@
 <template>
-  <div
-      class="!px-6 py-20 md:px-12 lg:px-20 flex items-center justify-center bg-[linear-gradient(-225deg,var(--p-primary-500),var(--p-primary-700)_48%,var(--p-primary-800))] dark:bg-[linear-gradient(-225deg,var(--p-primary-400),var(--p-primary-600)_48%,var(--p-primary-800))]"
-  >
-    <div class="p-12 shadow text-center lg:w-[30rem] backdrop-blur-md rounded-xl bg-[rgba(255,255,255,0.1)]">
-      <div class="text-4xl font-medium mb-12 text-primary-contrast">Welcome</div>
-      <InputText
-          type="text"
-          class="!appearance-none placeholder:!text-primary-contrast/40 !border-0 !p-4 !w-full !outline-0 !text-xl !block !mb-6 !bg-white/10 !text-primary-contrast/70 !rounded-full"
-          placeholder="Email"
-      />
-      <InputText
-          type="text"
-          class="!appearance-none placeholder:!text-primary-contrast/40 !border-0 !p-4 !w-full !outline-0 !text-xl !mb-6 !bg-white/10 !text-primary-contrast/70 !rounded-full"
-          placeholder="Password"
-      />
-      <button
-          type="button"
-          class="max-w-40 w-full rounded-full appearance-none border-0 p-4 outline-0 text-xl mb-6 font-medium bg-white/30 hover:bg-white/40 active:bg-white/20 text-primary-contrast/80 cursor-pointer transition-colors duration-150"
-      >
-        Sign In
-      </button>
-      <a class="cursor-pointer font-medium block text-center text-primary-contrast">Forgot Password?</a>
-    </div>
+  <div class="auth-page">
+    <h1>Login</h1>
+    <form @submit.prevent="handleLogin">
+      <div>
+        <label for="login">Enter your login:</label>
+        <input
+            id="login"
+            v-model="userLogin"
+            type="text"
+            placeholder="Enter login"
+            required
+        />
+      </div>
+      <button type="submit">Log In</button>
+    </form>
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
   </div>
 </template>
+
 <script setup lang="ts">
-import InputText from 'primevue/inputtext';
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+
+const router = useRouter();
+const userLogin = ref('');
+const errorMessage = ref('');
+
+const handleLogin = () => {
+  if (userLogin.value === '9908879976') {
+    sessionStorage.setItem('login', userLogin.value); // Сохраняем логин в sessionStorage
+    router.push('/'); // Перенаправляем на главную страницу
+  } else {
+    errorMessage.value = 'Invalid login. Please try again.';
+  }
+};
 </script>
+
+<style scoped>
+.auth-page {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+}
+</style>

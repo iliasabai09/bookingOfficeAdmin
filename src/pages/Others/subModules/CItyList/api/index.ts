@@ -15,3 +15,23 @@ export function createCity(data: any) {
 export function deleteCity(id: number) {
     return apiOffices.delete('/cities/' + id);
 }
+
+export function getRegionsList() {
+    return apiOffices.get('/regions');
+}
+
+export function updateRegion(data: any) {
+    return apiOffices.put('/regions/' + data.id, data);
+}
+
+export function deleteRegion(id: number) {
+    return apiOffices.delete('/regions/' + id);
+}
+
+export function setRegion(data: any) {
+    return apiOffices.post('/regions', data);
+}
+
+export function getRegionsByCode(code: string) {
+    return apiOffices.get('/regions/city/' + code);
+}
